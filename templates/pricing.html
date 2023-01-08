@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block include %}
+<link rel="stylesheet" href="{{url_for('static',filename = 'styles/pricing.css')}}">
+<!--<script type="text/javascript" src="script.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+{% endblock %}
+
+{% block content %}
+
+<p>Embrace the power of data and take your business to the next level in the dynamic realm of blockchain.</p>
+
+<div>
+  <div>
+    <h1>Basic</h1>
+    <p>This option provides basic information about customers and competition.</p>
+    <ul>
+      <li class="available">Basic graphs</li>
+      <li class="available">Some basic feature</li>
+      <li class="available">Another thing</li>
+      <li class="unavailable">Another thing</li>
+      <li class="unavailable">Something else</li>
+    </ul>
+    <button>
+      Get for $15/month
+    </button>
+  </div>
+  
+  <div>
+    <h1>Business</h1>
+    <p> Gaining a deeper understanding of the market through frozen data analysis, companies can better anticipate and adapt to changes in the market.</p>
+    <ul>
+      <li class="available">Basic graphs</li>
+      <li class="available">Some basic feature</li>
+      <li class="available">Another thing</li>
+      <li class="unavailable">Another thing</li>
+      <li class="unavailable">Something else</li>
+    </ul>
+    <button>
+      Get for $50/month
+    </button>
+  </div>
+  
+  <div>
+    <h1>Expert</h1>
+    <p> By harnessing the power of data science, companies can gain a competitive edge in the constantly-evolving world of blockchain.</p>
+    <ul>
+      <li class="available">Basic graphs</li>
+      <li class="available">Some basic feature</li>
+      <li class="available">Another thing</li>
+      <li class="unavailable">Another thing</li>
+      <li class="unavailable">Something else</li>
+    </ul>
+    <button>
+      Get for $299/month
+    </button>
+  </div>
+
+</div>
+
+
+
+{% endblock %}

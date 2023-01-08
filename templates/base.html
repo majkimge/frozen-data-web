@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        {% if title %}
+        <title>{{ title }} - Frozen Data</title>
+        {% else %}
+        <title>Frozen Data</title>
+        {% endif %}
+
+        <link rel="icon" href="{{url_for('static',filename = 'images/logo.png')}}">
+
+        {% block include %}{% endblock %}
+    </head>
+    <body>
+        <header>
+            <a class="text" href="{{ url_for('home') }}">
+                <img src="{{url_for('static',filename = 'images/logo_dark.png')}}">
+                {% if title %}
+                <h1>{{ title }}</h1>
+                {% else %}
+                <h1>Frozen Data</h1>
+                {% endif %}
+            </a>
+            
+            <div class="navbar">
+                <ul class="nav-main">
+                    <li id='link-home'><a class="text"  href="/home">Home</a></li>
+                    <li id='link-dashboard'><a class="text"  href="/not-implemented">Dashboard</a></li>
+                    <li id='link-pricing'><a class="text"  href="/pricing">Pricing</a></li>
+                    <li id='link-careers'><a class="text"  href="/not-implemented">Careers</a></li>
+                    <li id='link-about'><a class="text"  href="/not-implemented">About</a></li>
+                </ul>
+            </div>
+
+            <div>
+              {% if not logged_in %}
+              <a class="text" href="/not-implemented">
+                <span>Log In</span>
+              </a>
+              {% else %}
+              <a class="text" href="/not-implemented">
+                <span>{{ logged_in }}</span>
+              </a>
+              {% endif %}
+            </div>
+        </header>
+
+        <div class="main">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <footer>
+            <p>
+                <b>Frozen Data</b><br/>
+                &copy; 2023
+            </p>
+        </footer>
+    </body>
+    
+</html>
