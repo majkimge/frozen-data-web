@@ -1,7 +1,8 @@
 * {
-  font-family: sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -26,7 +27,8 @@ header {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   color: white;
-  padding: 0 2rem 0 2rem;
+  padding: 0 2rem 0 1rem;
+  gap: 2rem;
 }
 header > a {
   display: flex;
@@ -40,13 +42,42 @@ header div.navbar ul {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   list-style-type: none;
 }
 header div.navbar ul li {
-  padding: 0 1rem 0 1rem;
+  font-weight: bold;
+  height: 100%;
+}
+header div.navbar ul li a {
+  height: 100%;
+  width: 100%;
+  padding: 0 0.5rem 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
 }
 header img {
   height: 4rem;
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 1rem 0 1rem 0;
+}
+
+footer {
+  background-color: #35a2cb;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  padding: 1rem;
+}
+footer * {
+  color: white;
+  text-align: center;
+}
+
+button {
+  padding: 1em;
+  border: none;
+  background: none;
+  border-radius: 0.3em;
 }/*# sourceMappingURL=home.css.map */

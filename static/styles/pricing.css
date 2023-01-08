@@ -122,12 +122,13 @@ div.main > div {
   padding: 0 5%;
 }
 div.main > div > div {
+  max-width: 40ch;
   background-color: white;
   border-radius: 0.3rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   display: grid;
   grid-template-rows: auto 1fr auto auto;
-  gap: 1rem;
+  gap: 2rem;
 }
 div.main > div > div h1 {
   color: #ff4754;

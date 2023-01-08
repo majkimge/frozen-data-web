@@ -49,12 +49,14 @@ div.main {
     padding: 0 5%;
 
     & > div {
+      max-width: 40ch;
+
       background-color: white;
       border-radius: 0.3rem;
-      padding: 1rem;
+      padding: 2rem 1rem;
       display: grid;
       grid-template-rows: auto 1fr auto auto;
-      gap: 1rem;
+      gap: 2rem;
 
       h1 {
         color: $red;
