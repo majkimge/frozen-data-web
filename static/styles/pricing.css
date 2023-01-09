@@ -4,22 +4,26 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: #253145;
 }
 
-html, body {
+html, body, div.body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+div.body {
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #253145;
 }
 
 a.text {
   color: inherit;
   text-decoration: inherit;
-}
-
-body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  background-color: #253145;
 }
 
 header {

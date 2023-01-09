@@ -1,1 +1,124 @@
 @import 'base.scss';
+
+div.body {
+  perspective: 10px;
+  background-color: $blue;
+}
+
+div.parallax {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+  }
+
+  img.graph1 {
+    transform: translateZ(-10px) scale(2.1);
+  }
+
+  img.graph2 {
+    transform: translateZ(-5px) scale(1.6);
+  }
+
+  img.graph3 {
+    transform: translateZ(-15px) scale(2.6);
+  }
+
+  img.graph4 {
+    transform: translateZ(2px) scale(1);
+  }
+}
+
+div.main {
+  position: relative;
+
+  div.title {
+    width: 100%;
+    height: calc(100vh - 5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: stretch;
+
+    div {
+      background-image: url("/static/images/world_background.png");
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+
+      h1,h3 {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 8rem;
+        color: $blue;
+      }
+
+      h3 {
+        text-transform: uppercase;
+        color: white;
+      }
+    }
+  }
+
+  div.content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: $dark;
+
+    padding: 0 4rem;
+
+    img {
+      max-height: 20rem;
+      padding: 0.5rem 0;
+    }
+
+    padding-bottom: 2rem;
+
+    div.team {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      grid-auto-flow: column;
+      justify-content: space-evenly;
+      justify-items: center;
+      column-gap: 2rem;
+
+      width: 100%;
+      max-width: 120ch;
+
+      img {
+        max-height: 20rem;
+      }
+      
+      span {
+        text-align: center;
+      }
+      span.name {
+        text-transform: uppercase;
+        color: white;
+      }
+      span.role {
+        text-transform: capitalize;
+        color: $blue;
+      }
+    }
+  }
+}
