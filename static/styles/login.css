@@ -159,14 +159,14 @@ div.main div.login {
   padding: 3rem;
   border-radius: 0.3rem;
   position: relative;
+  gap: 1rem;
 }
 div.main div.login h1 {
   color: #ff4754;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 div.main div.login input {
-  margin-bottom: 1rem;
   padding: 0.5rem;
 }
 div.main div.login button {
@@ -179,4 +179,7 @@ div.main div.login button {
 }
 div.main div.login button:hover {
   background-color: #ff4754;
+}
+div.main div.login span {
+  color: #ff4754;
 }/*# sourceMappingURL=login.css.map */

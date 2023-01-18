@@ -29,7 +29,8 @@ function login() {
       location.assign('/home');
     }
     else {
-      alert(data.message)
+      $("#login-message").text(data.message);
+      $("#input-password").val("");
     }
   });
   

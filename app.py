@@ -2,7 +2,7 @@
 from socket import gethostname
 
 from flask import Flask, render_template, request
-from flask_login import LoginManager, login_user, logout_user
+from flask_login import LoginManager, login_user, logout_user, login_required
 from flaskext.mysql import MySQL;
 
 from user import User
@@ -28,6 +28,7 @@ mysql.init_app(app)
 ### SETUP LOGIN
 login_manager = LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = "/login"
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -65,6 +66,11 @@ def login():
 def logout():
   logout_user()
   return {}
+
+@app.route("/dashboard")
+@login_required
+def dashboard():
+  return "Not implemented"
 
 @app.route("/not-implemented")
 def not_implemented():
