@@ -59,10 +59,6 @@ def login():
       return  {"success": True, "message": ""}
     return {"success": False, "message": "The username or password were not posted"}
 
-  #user = load_user(1)
-  #login_user(user)
-  #logout_user()
-
   return render_template("login.html", title=None)
 
 @app.route("/logout")

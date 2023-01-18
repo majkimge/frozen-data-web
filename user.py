@@ -1,3 +1,5 @@
+from hashing import hash_password
+
 class User:
   def __init__(self, id, username):
     self.is_active=True
@@ -27,6 +29,7 @@ class User:
     return self.id
 
   def verify_login(mysql, username, password):
+    password = hash_password(password)
     with mysql.connect() as conn:
       with conn.cursor() as cursor:
         cursor.execute("SELECT id,username FROM users WHERE username=%(username)s AND password=%(password)s", {"username":username, "password":password})
