@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block include %}
+<link rel="stylesheet" href="{{url_for('static',filename = 'styles/login.css')}}">
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>Login</h1>
+  <label for="input-username">Email</label>
+  <input type="text" id="input-username">
+  <label for="input-password">Password</label>
+  <input type="password" id="input-password"> 
+</div>
+{% endblock %}
