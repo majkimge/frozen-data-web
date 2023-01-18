@@ -1,1 +1,40 @@
 @import 'base.scss';
+
+div.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div.login {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-width: min(50%,50ch);
+    max-width: 50ch;
+    padding: 3rem;
+    border-radius: 0.3rem;
+    position: relative;
+
+    h1 {
+      color: $red;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    input {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+    }
+    button {
+      font-size: large;
+      text-transform: uppercase;
+      background-color: $blue;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $red;
+      }
+    }
+  }
+}

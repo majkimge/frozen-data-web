@@ -31,13 +31,7 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-  with mysql.connect() as conn:
-    with conn.cursor() as cursor:
-      request, data = User.build_request(user_id)
-      cursor.execute(request, data)
-      data = cursor.fetchall()
-  print(data)
-  return User.get(data)
+  return User.user_from_id(mysql, user_id)
 
 ### PAGE REQUEST HANDLERS
 @app.route("/")
@@ -49,16 +43,32 @@ def home():
 def pricing():
   return render_template("pricing.html", title=None)
 
-@app.route("/login")
+@app.route("/login", methods=["GET","POST"])
 def login():
   if not request.is_secure:
     print("Login over HTTP is not secure!!!! TODO: change this")
   
+  if request.method == "POST":
+    print("Got login post")
+    data = request.get_json()
+    if "username" in data and "password" in data:
+      user = User.verify_login(mysql, data["username"], data["password"])
+      if user is None:
+        return {"success": False, "message": "Incorrect username or password"}
+      login_user(user)
+      return  {"success": True, "message": ""}
+    return {"success": False, "message": "The username or password were not posted"}
+
   #user = load_user(1)
   #login_user(user)
-  logout_user()
+  #logout_user()
 
   return render_template("login.html", title=None)
+
+@app.route("/logout")
+def logout():
+  logout_user()
+  return {}
 
 @app.route("/not-implemented")
 def not_implemented():

@@ -2,14 +2,14 @@
 
 {% block include %}
 <link rel="stylesheet" href="{{url_for('static',filename = 'styles/login.css')}}">
+<script type="text/javascript" src="{{url_for('static',filename = 'scripts/login.js')}}"></script>
 {% endblock %}
 
 {% block content %}
-<div>
+<div class="login">
   <h1>Login</h1>
-  <label for="input-username">Email</label>
-  <input type="text" id="input-username">
-  <label for="input-password">Password</label>
-  <input type="password" id="input-password"> 
+  <input type="text" id="input-username" placeholder="Email">
+  <input type="password" id="input-password" placeholder="Password"> 
+  <button onclick="login()" id="button-login">Log In</button>
 </div>
 {% endblock %}

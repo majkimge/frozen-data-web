@@ -13,6 +13,9 @@
 
     <link rel="icon" href="{{url_for('static',filename = 'images/logo.png')}}">
 
+    <script type="text/javascript" src="{{url_for('static',filename = 'scripts/base.js')}}"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
     {% block include %}{% endblock %}
 </head>
 
@@ -39,9 +42,14 @@
 
             <div>
                 {% if current_user.is_authenticated %}
-                <a class="text" href="/not-implemented">
-                    <span>{{ current_user.username }}</span>
-                </a>
+                <div class="logged-user">
+                    <a class="text" href="/not-implemented">
+                        <span class="username">{{ current_user.username }}</span>
+                    </a>
+                    <a href="#" onclick="return await logout()" id="logout">
+                        <span>Log out</span>
+                    </a>
+                </div>
                 {% else %}
                 <a class="text" href="/login">
                     <span>Log In</span>
