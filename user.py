@@ -1,12 +1,13 @@
 from hashing import hash_password
 
 class User:
-  def __init__(self, id, username):
+  def __init__(self, id, username, name):
     self.is_active=True
     self.is_anonymous=False
     self.is_authenticated=True # TODO
     self.id = str(id)
     self.username=username
+    self.name = name
 
   def get(db_result):
     if len(db_result) == 0:
@@ -18,12 +19,12 @@ class User:
     id = int(id)
     with mysql.connect() as conn:
       with conn.cursor() as cursor:
-        cursor.execute("SELECT id,username FROM users WHERE id=%(id)s;", {'id':id})
+        cursor.execute("SELECT id,username,name FROM users WHERE id=%(id)s;", {'id':id})
         data = cursor.fetchall()
     if len(data) == 0:
       return None
     else:
-      return User(data[0][0], data[0][1])
+      return User(data[0][0], data[0][1], data[0][2])
 
   def get_id(self):
     return self.id
@@ -32,13 +33,13 @@ class User:
     password = hash_password(password)
     with mysql.connect() as conn:
       with conn.cursor() as cursor:
-        cursor.execute("SELECT id,username FROM users WHERE username=%(username)s AND password=%(password)s", {"username":username, "password":password})
+        cursor.execute("SELECT id,username,name FROM users WHERE username=%(username)s AND password=%(password)s", {"username":username, "password":password})
         data = cursor.fetchall()
 
     if len(data) == 0:
       return None
     else:
-      return User(data[0][0], data[0][1])
+      return User(data[0][0], data[0][1],data[0][2])
 
 
   

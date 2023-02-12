@@ -1,3 +1,3 @@
 from hashing import hash_password
 
-print(hash_password("damndaniel"))
+print(hash_password("frozendata"))

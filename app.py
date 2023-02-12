@@ -2,10 +2,11 @@
 from socket import gethostname
 
 from flask import Flask, render_template, request
-from flask_login import LoginManager, login_user, logout_user, login_required
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flaskext.mysql import MySQL;
 
 from user import User
+import graphs_api
 
 ### INITIALIZE APP
 app = Flask(__name__)
@@ -50,7 +51,6 @@ def login():
     print("Login over HTTP is not secure!!!! TODO: change this")
   
   if request.method == "POST":
-    print("Got login post")
     data = request.get_json()
     if "username" in data and "password" in data:
       user = User.verify_login(mysql, data["username"], data["password"])
@@ -70,7 +70,14 @@ def logout():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-  return "Not implemented"
+  return render_template("dashboard.html", title=None)
+
+@app.route("/get-graphs")
+@login_required
+def get_graphs():
+  userid = current_user.get_id()
+  addresses = graphs_api.load_addresses(mysql, userid)
+  return  {"success": True, "address": addresses}
 
 @app.route("/not-implemented")
 def not_implemented():

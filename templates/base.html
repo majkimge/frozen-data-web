@@ -44,7 +44,7 @@
                 {% if current_user.is_authenticated %}
                 <div class="logged-user">
                     <a class="text" href="/not-implemented">
-                        <span class="username">{{ current_user.username }}</span>
+                        <span class="username">{{ current_user.name }}</span>
                     </a>
                     <a href="#" onclick="logout()" id="logout">
                         <span>Log out</span>

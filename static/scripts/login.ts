@@ -33,5 +33,4 @@ function login() {
       $("#input-password").val("");
     }
   });
-  
 }

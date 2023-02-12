@@ -1,0 +1,149 @@
+* {
+  font-family: "Trebuchet MS", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #253145;
+}
+
+html, body, div.body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+div.body {
+  overflow-y: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #253145;
+}
+
+a.text {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+header {
+  background-color: #35a2cb;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  color: white;
+  padding: 0 2rem 0 1rem;
+  gap: 2rem;
+}
+header > a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+header div.logged-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header div.logged-user span.username {
+  font-weight: bold;
+}
+header div.navbar {
+  height: 100%;
+}
+header div.navbar ul {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+header div.navbar ul li {
+  font-weight: bold;
+  height: 100%;
+  transition: 0.2s ease-in-out;
+}
+header div.navbar ul li a {
+  height: 100%;
+  width: 100%;
+  padding: 0 0.5rem 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+header div.navbar ul li:hover {
+  background-color: rgba(37, 49, 69, 0.1);
+}
+header img {
+  height: 4rem;
+  margin: 1rem 0 1rem 0;
+}
+
+footer {
+  background-color: #35a2cb;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  padding: 1rem;
+}
+footer * {
+  color: white;
+  text-align: center;
+}
+
+button {
+  padding: 1em;
+  border: none;
+  background: none;
+  border-radius: 0.3em;
+}
+
+h1.normal {
+  margin: 1.5em 0 0.5em 0;
+  color: white;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+h1.normal:after {
+  content: "";
+  position: absolute;
+  left: -1em;
+  right: -1em;
+  bottom: -0.2em;
+  height: 0.1em;
+  background-color: #ff4754;
+}
+
+h2.normal {
+  margin: 0.8em 0 0.2em 0;
+  color: white;
+  position: relative;
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+h2.normal:before, h2.normal:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 0.1em;
+  width: 2em;
+  background-color: white;
+}
+h2.normal:before {
+  left: -3em;
+}
+h2.normal:after {
+  right: -3em;
+}
+
+p.normal {
+  color: #35a2cb;
+  text-align: justify;
+  max-width: 120ch;
+}
+
+.main {
+  display: flex;
+}/*# sourceMappingURL=dashboard.css.map */
