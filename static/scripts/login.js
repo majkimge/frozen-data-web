@@ -1,19 +1,22 @@
-"use strict";
-exports.__esModule = true;
-var $ = require("jquery"); // YOU NEED TO DELETE FIRST 3 LINES FROM .js FILE
 // when document is ready
-$(function () {
+window.onload = function () {
+    var _a;
     // handle pressing enter
-    $("#input-password").on("keypress", function (event) {
-        if (event.key.toLowerCase() === "enter") {
+    (_a = document.getElementById("input-password")) === null || _a === void 0 ? void 0 : _a.addEventListener("keypress", function (event) {
+        var _a;
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+            // Cancel the default action, if needed
             event.preventDefault();
-            $("#button-login").trigger("click");
+            // Trigger the button element with a click
+            (_a = document.getElementById("button-login")) === null || _a === void 0 ? void 0 : _a.click();
         }
     });
-});
+};
 function login() {
-    var username = $("#input-username").val();
-    var password = $("#input-password").val();
+    var _a, _b;
+    var username = (_a = document.getElementById("input-username")) === null || _a === void 0 ? void 0 : _a.value;
+    var password = (_b = document.getElementById("input-password")) === null || _b === void 0 ? void 0 : _b.value;
     alert(username + password);
     fetch("/login", {
         headers: {
@@ -29,8 +32,8 @@ function login() {
             location.assign('/home');
         }
         else {
-            $("#login-message").text(data.message);
-            $("#input-password").val("");
+            document.getElementById("login-message").innerText = data.message;
+            document.getElementById("input-password").value = "";
         }
     });
 }

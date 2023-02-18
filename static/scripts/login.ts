@@ -1,19 +1,20 @@
-import * as $ from "jquery"; // YOU NEED TO DELETE FIRST 3 LINES FROM .js FILE
-
 // when document is ready
-$(() => {
+window.onload = () => {
   // handle pressing enter
-  $("#input-password" ).on("keypress", function(event) {
-    if (event.key.toLowerCase() === "enter") {
+  document.getElementById("input-password")?.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+      // Cancel the default action, if needed
       event.preventDefault();
-      $("#button-login").trigger("click");
+      // Trigger the button element with a click
+      document.getElementById("button-login")?.click();
     }
   });
-});
+};
 
 function login() {
-  let username = $("#input-username").val() as string;
-  let password = $("#input-password").val() as string;
+  let username = (document.getElementById("input-username") as HTMLInputElement)?.value as string;
+  let password = (document.getElementById("input-password") as HTMLInputElement)?.value as string;
   alert(username+password);
 
   fetch("/login", {
@@ -30,8 +31,8 @@ function login() {
       location.assign('/home');
     }
     else {
-      $("#login-message").text(data.message);
-      $("#input-password").val("");
+      (document.getElementById("login-message") as HTMLElement).innerText = data.message;
+      (document.getElementById("input-password") as HTMLInputElement).value = "";
     }
   });
 }
