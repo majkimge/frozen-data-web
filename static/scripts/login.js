@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+var $ = require("jquery"); // YOU NEED TO DELETE FIRST 3 LINES FROM .js FILE
 // when document is ready
 $(function () {
     // handle pressing enter
@@ -11,6 +14,7 @@ $(function () {
 function login() {
     var username = $("#input-username").val();
     var password = $("#input-password").val();
+    alert(username + password);
     fetch("/login", {
         headers: {
             'Accept': 'application/json',

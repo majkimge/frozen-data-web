@@ -14,6 +14,7 @@ $(() => {
 function login() {
   let username = $("#input-username").val() as string;
   let password = $("#input-password").val() as string;
+  alert(username+password);
 
   fetch("/login", {
     headers: {
