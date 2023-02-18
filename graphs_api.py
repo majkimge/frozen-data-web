@@ -38,7 +38,11 @@ def fetch_graphs_from_api(name, address, competitors):
     print("Fetching graph...")
     data = {"address_name_tuple1" : address,"address_name_tuple2" : name, "competition_addresses_dict" : competitors, "func_to_run":graph}
     x = requests.post(url, json=data)
-    data = json.loads(x.text)
+    try:
+      data = json.loads(x.text)
+    except:
+      print("Failed to parse json with graph")
+      print(x.text)
     fig = from_json(data)
     layout = py.graph_objects.Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(layout, template="plotly_dark")
