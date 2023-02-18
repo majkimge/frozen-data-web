@@ -26,7 +26,6 @@ else:
     app.config['MYSQL_DATABASE_USER'] = 'janoboril'
     app.config['MYSQL_DATABASE_DB'] = 'janoboril$MyWeb'
     app.config['MYSQL_DATABASE_HOST'] = 'janoboril.mysql.pythonanywhere-services.com'
-    app.config['MYSQL_DATABASE_PASSWORD'] = "database_password"
 mysql.init_app(app)
 
 ### SETUP LOGIN
