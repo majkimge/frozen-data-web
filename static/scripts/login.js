@@ -17,7 +17,6 @@ function login() {
     var _a, _b;
     var username = (_a = document.getElementById("input-username")) === null || _a === void 0 ? void 0 : _a.value;
     var password = (_b = document.getElementById("input-password")) === null || _b === void 0 ? void 0 : _b.value;
-    alert(username + password);
     fetch("/login", {
         headers: {
             'Accept': 'application/json',
