@@ -22,8 +22,11 @@ if 'DESKTOP-VGO' in gethostname():
     app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.config['MYSQL_DATABASE_PASSWORD'] = ""
 else:
-    # Elsewhere, when deployed
-    raise Exception("No data given on how to connect to database")
+    # On pythonanywhere
+    app.config['MYSQL_DATABASE_USER'] = 'janoboril'
+    app.config['MYSQL_DATABASE_DB'] = 'janoboril$MyWeb'
+    app.config['MYSQL_DATABASE_HOST'] = 'janoboril.mysql.pythonanywhere-services.com'
+    app.config['MYSQL_DATABASE_PASSWORD'] = "database_password"
 mysql.init_app(app)
 
 ### SETUP LOGIN
