@@ -151,4 +151,14 @@ p.normal {
 #graph-container {
   display: flex;
   width: 100%;
+  flex-flow: column;
+}
+#graph-container div {
+  width: 80%;
+  margin: 2rem 0;
+}
+
+/* Hide plotly floating bar */
+.modebar {
+  display: none !important;
 }/*# sourceMappingURL=dashboard.css.map */

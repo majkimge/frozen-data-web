@@ -10,7 +10,9 @@ function load_graphs() {
             for (var i = 0; i < data.graphs.length; i++) {
                 var div = document.createElement("div");
                 div.innerHTML = data.graphs[i];
-                container === null || container === void 0 ? void 0 : container.appendChild(div);
+                if (div.firstChild != null) {
+                    container === null || container === void 0 ? void 0 : container.appendChild(div.firstChild);
+                }
             }
             nodeScriptReplace(container);
         }

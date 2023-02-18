@@ -1,7 +1,7 @@
 import requests
 from plotly.io import to_html, from_json
+import plotly as py
 import json
-from plotly.offline import plot
 
 def load_competitors(mysql, userid):
   with mysql.connect() as conn:
@@ -40,8 +40,9 @@ def fetch_graphs_from_api(name, address, competitors):
     x = requests.post(url, json=data)
     data = json.loads(x.text)
     fig = from_json(data)
-    fig_div = fig.to_html(full_html=False, include_plotlyjs="cdn")
-    fig_div = plot(fig, include_plotlyjs=True, output_type='div')
+    layout = py.graph_objects.Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)')
+    fig.update_layout(layout, template="plotly_dark")
+    fig_div = fig.to_html(full_html=False, include_plotlyjs=False)
     figs.append(fig_div)
   
   return figs
