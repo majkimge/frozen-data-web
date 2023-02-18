@@ -8,9 +8,11 @@
   display: flex;
   width: 100%;
   flex-flow: column;
+  align-items: center;
 
-  div {
+  &>div {
     width: 80%;
+    max-width: 80rem;
     margin: 2rem 0;
   }
 }

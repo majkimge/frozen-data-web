@@ -152,9 +152,11 @@ p.normal {
   display: flex;
   width: 100%;
   flex-flow: column;
+  align-items: center;
 }
-#graph-container div {
+#graph-container > div {
   width: 80%;
+  max-width: 80rem;
   margin: 2rem 0;
 }
 

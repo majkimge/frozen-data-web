@@ -1,5 +1,6 @@
 import requests
-from plotly.io import to_html, from_json
+from plotly.io import from_json
+from plotly.offline import plot
 import plotly as py
 import json
 
@@ -38,15 +39,12 @@ def fetch_graphs_from_api(name, address, competitors):
     print("Fetching graph...")
     data = {"address_name_tuple1" : address,"address_name_tuple2" : name, "competition_addresses_dict" : competitors, "func_to_run":graph}
     x = requests.post(url, json=data)
-    try:
-      data = json.loads(x.text)
-    except:
-      print("Failed to parse json with graph")
-      print(x.text)
+    data = json.loads(x.text)
     fig = from_json(data)
     layout = py.graph_objects.Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(layout, template="plotly_dark")
-    fig_div = fig.to_html(full_html=False, include_plotlyjs=False)
+    #fig_div = fig.to_html(full_html=False, include_plotlyjs=False, default_height="10rem")
+    fig_div = plot(fig, include_plotlyjs=False, output_type='div')
     figs.append(fig_div)
   
   return figs
