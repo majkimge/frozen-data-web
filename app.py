@@ -23,9 +23,9 @@ if 'DESKTOP-VGO' in gethostname():
     app.config['MYSQL_DATABASE_PASSWORD'] = ""
 else:
     # On pythonanywhere
-    app.config['MYSQL_DATABASE_USER'] = 'janoboril'
-    app.config['MYSQL_DATABASE_DB'] = 'janoboril$MyWeb'
-    app.config['MYSQL_DATABASE_HOST'] = 'janoboril.mysql.pythonanywhere-services.com'
+    app.config['MYSQL_DATABASE_USER'] = 'frozendata'
+    app.config['MYSQL_DATABASE_DB'] = 'frozendata$MyWeb'
+    app.config['MYSQL_DATABASE_HOST'] = 'frozendata.mysql.pythonanywhere-services.com'
     app.config['MYSQL_DATABASE_PASSWORD'] = "database_password"
 
 mysql.init_app(app)
