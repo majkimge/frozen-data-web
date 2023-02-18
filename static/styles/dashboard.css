@@ -146,4 +146,9 @@ p.normal {
 
 .main {
   display: flex;
+}
+
+#graph-container {
+  display: flex;
+  width: 100%;
 }/*# sourceMappingURL=dashboard.css.map */

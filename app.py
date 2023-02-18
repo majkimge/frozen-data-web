@@ -3,7 +3,7 @@ from socket import gethostname
 
 from flask import Flask, render_template, request
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from flaskext.mysql import MySQL;
+from flaskext.mysql import MySQL
 
 from user import User
 import graphs_api
@@ -76,8 +76,9 @@ def dashboard():
 @login_required
 def get_graphs():
   userid = current_user.get_id()
-  addresses = graphs_api.load_addresses(mysql, userid)
-  return  {"success": True, "address": addresses}
+  competitors = graphs_api.load_competitors(mysql, userid)
+  graphs = graphs_api.fetch_graphs_from_api(*competitors)
+  return  {"success": True, "graphs": graphs}
 
 @app.route("/not-implemented")
 def not_implemented():

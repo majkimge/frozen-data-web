@@ -1,6 +1,9 @@
 import requests
+from plotly.io import to_html, from_json
+import json
+from plotly.offline import plot
 
-def load_addresses(mysql, userid):
+def load_competitors(mysql, userid):
   with mysql.connect() as conn:
     with conn.cursor() as cursor:
       cursor.execute("SELECT address FROM addresses WHERE userid=%(userid)s", {"userid":userid})
@@ -24,16 +27,21 @@ def load_addresses(mysql, userid):
 
   competitors = {d[0]: d[1] for d in data}
 
-  graphs = fetch_graphs_from_api(name, address, competitors)
-
   return (name, address,competitors)
 
 def fetch_graphs_from_api(name, address, competitors):
   url = "http://18.130.124.104/getGraphs/"
   graphs = ["plot_eth_spent_graph_customers", "plot_customers_graph", "plot_eth_spent_graph_everyone"]
 
+  figs = []
   for graph in graphs:
     print("Fetching graph...")
-    data = {"address_name_tuple1" : address,"address_name_tuple2" : name, "competition_addresses_dict" : competitors, "func_to_run":"plot_eth_spent_graph_everyone"}
+    data = {"address_name_tuple1" : address,"address_name_tuple2" : name, "competition_addresses_dict" : competitors, "func_to_run":graph}
     x = requests.post(url, json=data)
-    print(f"Size: {len(data)}")
+    data = json.loads(x.text)
+    fig = from_json(data)
+    fig_div = fig.to_html(full_html=False, include_plotlyjs="cdn")
+    fig_div = plot(fig, include_plotlyjs=True, output_type='div')
+    figs.append(fig_div)
+  
+  return figs
