@@ -15,7 +15,6 @@ window.onload = () => {
 function login() {
   let username = (document.getElementById("input-username") as HTMLInputElement)?.value as string;
   let password = (document.getElementById("input-password") as HTMLInputElement)?.value as string;
-  alert(username+password);
 
   fetch("/login", {
     headers: {
