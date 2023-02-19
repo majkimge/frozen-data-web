@@ -28,7 +28,13 @@ function login() {
         .then(function (response) { return response.json(); })
         .then(function (data) {
         if (data.success) {
-            location.assign('/home');
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var next = urlParams.get('next');
+            if (next == null) {
+                next = "/home";
+            }
+            location.assign(next);
         }
         else {
             document.getElementById("login-message").innerText = data.message;

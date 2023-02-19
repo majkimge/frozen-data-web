@@ -27,7 +27,13 @@ function login() {
   .then((response) => response.json())
   .then((data) => {
     if (data.success) {
-      location.assign('/home');
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      let next = urlParams.get('next')
+      if (next == null) {
+        next = "/home";
+      }
+      location.assign(next);
     }
     else {
       (document.getElementById("login-message") as HTMLElement).innerText = data.message;

@@ -1,7 +1,7 @@
 ### IMPORTS
 from socket import gethostname
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flaskext.mysql import MySQL
 
@@ -48,6 +48,10 @@ def home():
 @app.route("/pricing")
 def pricing():
   return render_template("pricing.html", title=None)
+
+@login_manager.unauthorized_handler
+def handle_needs_login():
+  return redirect(url_for('login', next=request.endpoint))
 
 @app.route("/login", methods=["GET","POST"])
 def login():
