@@ -30,6 +30,9 @@
                 {% endif %}
             </a>
 
+            <input type="checkbox" hidden id="navbar-hamburger" checked>
+            <label class="navbar-hamburger" for="navbar-hamburger"><span></span></label>
+
             <div class="navbar">
                 <ul class="nav-main">
                     <li id='link-home'><a class="text" href="/home">Home</a></li>
@@ -39,22 +42,22 @@
                 </ul>
             </div>
 
-            <div>
+
+            <div class="logged-user">
                 {% if current_user.is_authenticated %}
-                <div class="logged-user">
-                    <a class="text" href="/not-implemented">
-                        <span class="username">{{ current_user.name }}</span>
-                    </a>
-                    <a href="#" onclick="logout()" id="logout">
-                        <span>Log out</span>
-                    </a>
-                </div>
+                <a class="text" href="/not-implemented">
+                    <span class="username">{{ current_user.name }}</span>
+                </a>
+                <a href="#" onclick="logout()" id="logout">
+                    <span>Log out</span>
+                </a>
                 {% else %}
                 <a class="text" href="/login">
                     <span>Log In</span>
                 </a>
                 {% endif %}
             </div>
+
         </header>
 
         <div class="main">

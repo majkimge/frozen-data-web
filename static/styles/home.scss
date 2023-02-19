@@ -61,11 +61,15 @@ div.main {
       padding: 2rem;
       gap: 2rem;
 
-      h1,h3 {
+      h1,
+      h3 {
         text-align: center;
       }
 
       h1 {
+        @media (max-width: $mobile-width) {
+          font-size: 6rem;
+        }
         font-size: 8rem;
         color: $blue;
       }
@@ -78,46 +82,113 @@ div.main {
   }
 
   div.content {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: $dark;
 
-    padding: 0 4rem;
-
-    img {
-      max-height: 20rem;
-      padding: 0.5rem 0;
+    div.light {
+      background-color: $blue;
+      * {
+        color: $dark;
+      }
+    }
+    div.dark {
+      background-color: $dark;
     }
 
-    padding-bottom: 2rem;
-
-    div.team {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: auto auto auto;
-      grid-auto-flow: column;
-      justify-content: space-evenly;
-      justify-items: center;
-      column-gap: 2rem;
-
+    &>div {
       width: 100%;
-      max-width: 120ch;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    &>div>div {
+      max-width: 80ch;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+
+      margin: 6rem 0;
+      padding: 0 4rem;
+      @media (min-width: $mobile-width) {
+        margin: 6rem 4rem;
+        padding: 0;
+      }
+
+      overflow: hidden;
+
+      @media (max-width: $mobile-width) {
+        h2 {
+          width: 100%;
+          &::before {
+            left: -101rem;
+          }
+          &::after {
+            right: -101rem;
+          }
+        }
+      }
+
+      h1 {
+        margin: 0;
+        margin-bottom: 3rem;
+      }
+
+      p {
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        max-width: 80ch;
+      }
 
       img {
         max-height: 20rem;
+        max-width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
       }
-      
-      span {
-        text-align: center;
-      }
-      span.name {
-        text-transform: uppercase;
-        color: white;
-      }
-      span.role {
-        text-transform: capitalize;
-        color: $blue;
+
+      div.team {
+        width: 100%;
+        display: grid;
+
+        @media (min-width: $mobile-width) {
+          grid-auto-flow: column;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: auto auto auto;
+        }
+
+        grid-auto-flow: row;
+
+        justify-content: space-evenly;
+        justify-items: center;
+        column-gap: 2rem;
+        row-gap: 0.5rem;
+
+        width: 100%;
+        max-width: 120ch;
+
+        img {
+          max-height: 20rem;
+          margin: 0;
+          margin-bottom: 1rem;
+        }
+
+        span {
+          text-align: center;
+        }
+
+        span.name {
+          text-transform: uppercase;
+          color: white;
+        }
+
+        span.role {
+          text-transform: capitalize;
+          color: $blue;
+
+          @media (max-width: $mobile-width) {
+            margin-bottom: 2rem;
+          }
+        }
       }
     }
   }
