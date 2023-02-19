@@ -32,6 +32,7 @@ header {
   height: 6rem;
   overflow-y: visible;
   z-index: 10;
+  position: relative;
   background-color: #35a2cb;
   display: grid;
   color: white;
