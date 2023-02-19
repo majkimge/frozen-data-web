@@ -279,7 +279,7 @@ div.parallax img.graph3 {
   transform: translateZ(-15px) scale(2.6);
 }
 div.parallax img.graph4 {
-  transform: translateZ(0) scale(1);
+  transform: translateZ(-2px) scale(1.4);
 }
 
 div.main {
