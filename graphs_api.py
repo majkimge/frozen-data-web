@@ -32,7 +32,7 @@ def load_competitors(mysql, userid):
 
 def fetch_graphs_from_api(name, address, competitors):
   url = "http://18.130.124.104/getGraphs/"
-  graphs = ["plot_eth_spent_graph_customers", "plot_customers_graph", "plot_eth_spent_graph_everyone"]
+  graphs = ["plot_eth_spent_graph_customers", "plot_customers_graph", "plot_eth_spent_graph_everyone", "create_distribution_plot", "get_pie_competition"]
 
   figs = []
   for graph in graphs:
