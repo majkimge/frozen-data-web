@@ -88,8 +88,8 @@ def get_graphs():
   graphs = graphs_api.fetch_graphs_from_api(*competitors)
   return  {"success": True, "graphs": graphs}
 
-@app.route("/not-implemented")
-def not_implemented():
+@app.route("/careers")
+def careers():
   return "Not implemented"
 
 if __name__ == "__main__":

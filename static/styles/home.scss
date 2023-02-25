@@ -1,6 +1,7 @@
 @import 'base.scss';
 
 div.body {
+  position: relative;
   perspective: 10px;
   background-color: $blue;
 }
@@ -42,6 +43,7 @@ div.parallax {
 
 div.main {
   position: relative;
+  background-color: #00000000;
 
   div.title {
     width: 100%;
@@ -70,6 +72,7 @@ div.main {
         @media (max-width: $mobile-width) {
           font-size: 6rem;
         }
+
         font-size: 8rem;
         color: $blue;
       }
@@ -82,15 +85,18 @@ div.main {
   }
 
   div.content {
-
     div.light {
       background-color: $blue;
       * {
         color: $dark;
       }
     }
+
     div.dark {
       background-color: $dark;
+      * {
+        color: $blue;
+      }
     }
 
     &>div {
@@ -109,6 +115,7 @@ div.main {
 
       margin: 6rem 0;
       padding: 0 4rem;
+
       @media (min-width: $mobile-width) {
         margin: 6rem 4rem;
         padding: 0;
@@ -119,9 +126,11 @@ div.main {
       @media (max-width: $mobile-width) {
         h2 {
           width: 100%;
+
           &::before {
             left: -101rem;
           }
+
           &::after {
             right: -101rem;
           }

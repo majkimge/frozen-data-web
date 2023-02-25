@@ -1,0 +1,283 @@
+$dark: #253145;
+$blue: #35a2cb;
+$red: #ff4754;
+$green: #51cb20;
+$mobile-width: 823px;
+
+* {
+  font-family: 'Trebuchet MS', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $dark;
+}
+
+html,
+body,
+div.body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+div.body {
+  overflow-y: auto;
+  position: relative;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: $dark;
+}
+
+
+
+a.text {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+header {
+  height: 6rem;
+  overflow-y: visible;
+  z-index: 10;
+  position: relative;
+  background-color: $blue;
+
+  &>div {
+    background-color: $blue;
+  }
+
+  display: grid;
+
+  @media (min-width: $mobile-width) {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  @media (max-width: $mobile-width) {
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto 1fr;
+    justify-items: start;
+  }
+
+  @media (max-width: $mobile-width) {
+    #navbar-hamburger:checked~div.navbar {
+      display: none;
+    }
+
+    #navbar-hamburger:checked~div.logged-user {
+      display: none;
+    }
+  }
+
+  color: white;
+
+  column-gap: 2rem;
+
+  &>a {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      height: 4rem;
+      margin: 1rem 0 1rem 0;
+    }
+  }
+
+  label.navbar-hamburger {
+    display: none;
+
+    @media (max-width: $mobile-width) {
+      display: block;
+      justify-self: end;
+      align-self: center;
+
+      margin-right: 2rem;
+
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+
+      span {
+        background-color: $dark;
+        height: 2px;
+        width: 100%;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: "";
+          height: 2px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          background-color: $dark;
+        }
+
+        &::before {
+          top: -0.5rem;
+        }
+
+        &::after {
+          bottom: -0.5rem;
+        }
+      }
+    }
+  }
+
+  div.logged-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    padding-right: 2rem;
+    @media (max-width: $mobile-width) {
+      padding: 4rem 0;
+      grid-column: 1/3;
+      padding-right: 0;
+    }
+
+    span.username {
+      font-weight: bold;
+    }
+  }
+
+  div.navbar {
+    height: 100%;
+
+    @media (max-width: $mobile-width) {
+      width: 100%;
+      grid-column: 1/3;
+    }
+  }
+
+  div.navbar ul {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $mobile-width) {
+      flex-flow: column;
+      justify-content: stretch;
+      width: 100%;
+    }
+
+    list-style-type: none;
+
+    li {
+      font-weight: bold;
+      height: 100%;
+
+      @media (max-width: $mobile-width) {
+        width: 100%;
+      }
+
+      a {
+        height: 100%;
+        width: 100%;
+
+        padding: 0 0.5rem 0 0.5rem;
+        @media (max-width: $mobile-width) { 
+          padding: 2rem 0;
+        }
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-transform: uppercase;
+      }
+
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: transparentize($color: $dark, $amount: 0.9);
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+
+  padding: 1rem;
+
+  * {
+    color: white;
+    text-align: center;
+  }
+}
+
+button {
+  padding: 1em;
+  border: none;
+  background: none;
+  border-radius: 0.3em;
+}
+
+h1.normal {
+  margin: 1.5em 0 0.5em 0;
+  color: white;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-align: center;
+  display: inline-block;
+}
+
+h1.underline:after {
+  content: "";
+  position: absolute;
+  left: -1em;
+  right: -1em;
+  bottom: -0.2em;
+  height: 0.1em;
+  background-color: $red;
+}
+
+h2.normal {
+  margin: 0.8em 0 0.2em 0;
+  color: white;
+  position: relative;
+  text-transform: capitalize;
+  font-size: 2rem;
+  text-align: center;
+  display: table;
+}
+
+h2.lined {
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 0.1em;
+    width: 100rem;
+    background-color: white;
+  }
+
+  &:before {
+    left: -102rem;
+  }
+
+  &:after {
+    right: -102rem;
+  }
+}
+
+p.normal {
+  color: $blue;
+  text-align: justify;
+  max-width: 120ch;
+}

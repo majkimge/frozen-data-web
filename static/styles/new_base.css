@@ -168,44 +168,4 @@ footer {
 }
 footer > p {
   text-align: center;
-}
-
-div.main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-div.main div.login {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  min-width: min(50%, 50ch);
-  max-width: 50ch;
-  padding: 3rem;
-  border-radius: 0.3rem;
-  position: relative;
-  gap: 1rem;
-}
-div.main div.login h1 {
-  color: #ff4754;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-div.main div.login input {
-  padding: 0.5rem;
-}
-div.main div.login button {
-  font-size: large;
-  text-transform: uppercase;
-  background-color: #35a2cb;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-div.main div.login button:hover {
-  background-color: #ff4754;
-}
-div.main div.login span {
-  color: #ff4754;
-}/*# sourceMappingURL=login.css.map */
+}/*# sourceMappingURL=new_base.css.map */

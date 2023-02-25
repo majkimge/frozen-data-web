@@ -1,249 +1,173 @@
 * {
   font-family: "Trebuchet MS", sans-serif;
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
   color: #253145;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body,
 div.body {
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
 }
 
 div.body {
-  overflow-y: auto;
-  position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background-color: #253145;
+  grid-auto-flow: column;
 }
 
-a.text {
-  color: inherit;
-  text-decoration: inherit;
+.main {
+  background-color: #253145;
 }
 
 header {
   height: 6rem;
   overflow-y: visible;
-  z-index: 10;
-  position: relative;
-  background-color: #35a2cb;
   display: grid;
-  color: white;
-  -moz-column-gap: 2rem;
-       column-gap: 2rem;
-}
-header > div {
+  grid-template-rows: 6rem auto auto;
   background-color: #35a2cb;
+  z-index: 1000;
 }
-@media (min-width: 823px) {
-  header {
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-  }
+header > * {
+  z-index: 1000;
 }
-@media (max-width: 823px) {
-  header {
-    grid-template-rows: auto auto auto;
-    grid-template-columns: auto 1fr;
-    justify-items: start;
-  }
-}
-@media (max-width: 823px) {
-  header #navbar-hamburger:checked ~ div.navbar {
-    display: none;
-  }
-  header #navbar-hamburger:checked ~ div.logged-user {
-    display: none;
-  }
-}
-header > a {
-  margin-left: 1rem;
+header > div.logo {
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
-header > a img {
+header > div.logo > img {
+  margin: 1rem 2rem;
   height: 4rem;
-  margin: 1rem 0 1rem 0;
 }
-header label.navbar-hamburger {
-  display: none;
+header > ul {
+  background-color: #35a2cb;
+  align-items: center;
+  list-style-type: none;
+}
+header > ul > li {
+  display: flex;
+}
+header > ul > li > a {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.2s ease-in-out;
+}
+header > ul > li > a:hover {
+  background-color: rgba(37, 49, 69, 0.1);
+}
+header > div.user-login {
+  display: flex;
+  background-color: #35a2cb;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header > div.user-login > a.username {
+  text-decoration: none;
+  font-weight: bold;
 }
 @media (max-width: 823px) {
-  header label.navbar-hamburger {
-    display: block;
-    justify-self: end;
-    align-self: center;
-    margin-right: 2rem;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
+  header {
+    grid-template-columns: auto 1fr auto;
   }
-  header label.navbar-hamburger span {
+  header > div.logo > h1 {
+    font-size: 1.5rem;
+  }
+  header > label {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    height: 2px;
     background-color: #253145;
-    height: 2px;
-    width: 100%;
+    width: 2rem;
     position: relative;
+    align-self: center;
+    margin: 0 2rem;
   }
-  header label.navbar-hamburger span::before, header label.navbar-hamburger span::after {
+  header > label::before, header > label::after {
     content: "";
-    height: 2px;
     position: absolute;
     left: 0;
     right: 0;
+    height: 2px;
     background-color: #253145;
   }
-  header label.navbar-hamburger span::before {
+  header > label::before {
     top: -0.5rem;
   }
-  header label.navbar-hamburger span::after {
+  header > label::after {
     bottom: -0.5rem;
   }
-}
-header div.logged-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-right: 2rem;
-}
-@media (max-width: 823px) {
-  header div.logged-user {
-    padding: 4rem 0;
-    grid-column: 1/3;
-    padding-right: 0;
+  header > ul, header > div.user-login {
+    display: none;
   }
-}
-header div.logged-user span.username {
-  font-weight: bold;
-}
-header div.navbar {
-  height: 100%;
-}
-@media (max-width: 823px) {
-  header div.navbar {
-    width: 100%;
-    grid-column: 1/3;
+  header input:checked ~ ul,
+  header input:checked ~ div.user-login {
+    display: flex;
   }
-}
-header div.navbar ul {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-}
-@media (max-width: 823px) {
-  header div.navbar ul {
-    flex-flow: column;
-    justify-content: stretch;
+  header > ul {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    flex-direction: column;
+  }
+  header > ul > li {
     width: 100%;
   }
-}
-header div.navbar ul li {
-  font-weight: bold;
-  height: 100%;
-  transition: 0.2s ease-in-out;
-}
-@media (max-width: 823px) {
-  header div.navbar ul li {
+  header > ul > li > a {
     width: 100%;
+    padding: 1rem 0;
+  }
+  header > div.user-login {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    width: 100%;
+    padding: 3rem 0;
   }
 }
-header div.navbar ul li a {
-  height: 100%;
-  width: 100%;
-  padding: 0 0.5rem 0 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-}
-@media (max-width: 823px) {
-  header div.navbar ul li a {
-    padding: 2rem 0;
+@media (min-width: 823px) {
+  header {
+    grid-template-columns: auto 1fr auto 1fr auto;
+    grid-template-rows: 1fr;
   }
-}
-header div.navbar ul li:hover {
-  background-color: rgba(37, 49, 69, 0.1);
+  header > label {
+    display: none;
+  }
+  header > ul {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    flex-flow: row;
+    display: flex;
+  }
+  header > ul > li {
+    height: 100%;
+  }
+  header > ul > li > a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.5rem;
+  }
+  header > div.user-login {
+    grid-column: 5/6;
+    grid-row: 1/2;
+    margin-right: 2rem;
+  }
 }
 
 footer {
-  background-color: #35a2cb;
+  height: 6rem;
   display: flex;
-  flex-direction: column;
-  align-items: right;
-  padding: 1rem;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #35a2cb;
 }
-footer * {
-  color: white;
+footer > p {
   text-align: center;
-}
-
-button {
-  padding: 1em;
-  border: none;
-  background: none;
-  border-radius: 0.3em;
-}
-
-h1.normal {
-  margin: 1.5em 0 0.5em 0;
-  color: white;
-  position: relative;
-  text-transform: uppercase;
-  font-size: 3rem;
-  text-align: center;
-  display: inline-block;
-}
-
-h1.underline:after {
-  content: "";
-  position: absolute;
-  left: -1em;
-  right: -1em;
-  bottom: -0.2em;
-  height: 0.1em;
-  background-color: #ff4754;
-}
-
-h2.normal {
-  margin: 0.8em 0 0.2em 0;
-  color: white;
-  position: relative;
-  text-transform: capitalize;
-  font-size: 2rem;
-  text-align: center;
-  display: table;
-}
-
-h2.lined:before, h2.lined:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  height: 0.1em;
-  width: 100rem;
-  background-color: white;
-}
-h2.lined:before {
-  left: -102rem;
-}
-h2.lined:after {
-  right: -102rem;
-}
-
-p.normal {
-  color: #35a2cb;
-  text-align: justify;
-  max-width: 120ch;
 }
 
 .main {

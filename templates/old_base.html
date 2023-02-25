@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% if title %}
+    <title>{{ title }} - Frozen Data</title>
+    {% else %}
+    <title>Frozen Data</title>
+    {% endif %}
+
+    <link rel="icon" href="{{url_for('static',filename = 'images/logo.png')}}">
+
+    <script type="text/javascript" src="{{url_for('static',filename = 'scripts/base.js')}}"></script>
+
+    {% block include %}{% endblock %}
+</head>
+
+<body>
+    <div class="body">
+        <header>
+            <a class="text" href="{{ url_for('home') }}">
+                <img src="{{url_for('static',filename = 'images/logo_dark.png')}}">
+                {% if title %}
+                <h1>{{ title }}</h1>
+                {% else %}
+                <h1>Frozen Data</h1>
+                {% endif %}
+            </a>
+
+            <input type="checkbox" hidden id="navbar-hamburger" checked>
+            <label class="navbar-hamburger" for="navbar-hamburger"><span></span></label>
+
+            <div class="navbar">
+                <ul class="nav-main">
+                    <li id='link-home'><a class="text" href="/home">Home</a></li>
+                    <li id='link-dashboard'><a class="text" href="/dashboard">Dashboard</a></li>
+                    <li id='link-pricing'><a class="text" href="/pricing">Pricing</a></li>
+                    <li id='link-careers'><a class="text" href="/not-implemented">Careers</a></li>
+                </ul>
+            </div>
+
+
+            <div class="logged-user">
+                {% if current_user.is_authenticated %}
+                <a class="text" href="/not-implemented">
+                    <span class="username">{{ current_user.name }}</span>
+                </a>
+                <a href="#" onclick="logout()" id="logout">
+                    <span>Log out</span>
+                </a>
+                {% else %}
+                <a class="text" href="/login">
+                    <span>Log In</span>
+                </a>
+                {% endif %}
+            </div>
+
+        </header>
+
+        <div class="main">
+            {% block content %}{% endblock %}
+        </div>
+
+        <footer>
+            <p>
+                <b>Frozen Data</b><br />
+                &copy; 2023
+            </p>
+        </footer>
+
+        {% block parallax %}{% endblock %}
+    </div>
+</body>
+
+</html>
