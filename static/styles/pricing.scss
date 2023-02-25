@@ -41,11 +41,25 @@ div.main {
 
     width: 100%;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-evenly;
+    @media (max-width: $mobile-width) {
+      display: flex;
+      flex-flow: column;
 
-    gap: 5%;
+      align-items: center;
+      gap: 3rem;
+
+      padding: 0 15%;
+      padding-bottom: 3rem;
+    }
+
+    @media (min-width: $mobile-width) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      gap: 5%;
+      justify-content: space-evenly;
+    }
+
     padding: 0 5%;
 
     & > div {
@@ -98,19 +112,6 @@ div.main {
           &:before {
             content: "✗";
           }
-        }
-      }
-
-      button {
-        font-size: large;
-        text-transform: uppercase;
-        background-color: $blue;
-        color: white;
-        cursor: pointer;
-        transition: 0.2s ease-in-out;
-
-        &:hover {
-          background-color: $red;
         }
       }
     }

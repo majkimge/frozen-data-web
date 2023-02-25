@@ -24,18 +24,6 @@ div.main {
     input {
       padding: 0.5rem;
     }
-    button {
-      font-size: large;
-      text-transform: uppercase;
-      background-color: $blue;
-      color: white;
-      cursor: pointer;
-      transition: 0.2s ease-in-out;
-
-      &:hover {
-        background-color: $red;
-      }
-    }
 
     span {
       color: $red;
