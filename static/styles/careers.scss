@@ -1,0 +1,59 @@
+@import 'base.scss';
+
+div.main {
+   * {
+    color: $blue;
+   }
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-evenly;
+
+   &>h1 {
+    color: white;
+    text-transform: uppercase;
+   }
+
+   &>div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 2rem;
+
+    max-width: 80ch;
+    row-gap: 0.4rem;
+    
+    span.role {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    span.occupation {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      justify-self: end;
+      font-weight: bold;
+    }
+
+    p {
+      grid-column: 1/3;
+      grid-row: 2/3;
+
+      position: relative;
+
+      text-align: justify;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.2rem;
+        height: 1px;
+        background-color: white;
+      }
+    }
+   }
+}

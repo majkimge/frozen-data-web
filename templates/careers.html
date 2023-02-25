@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block include %}
+<link rel="stylesheet" href="{{url_for('static',filename = 'styles/careers.css')}}">
+{% endblock %}
+
+{% block content %}
+<h1>Open positions</h1>
+
+<div class="open-position normal">
+  <span class="role">Software Engineer</span>
+  <span class="occupation">Part-Time</span>
+  <p>We are currently looking for part-time software engineers who could help us bring our vision to life. If you enjoy writing code and think that a fast-paced startup environment is for you, please send us your CV and cover letter to <a href="mailto: apply@frozendata.co.uk">apply@frozendata.co.uk</a>.</p>
+</div>
+{% endblock %}

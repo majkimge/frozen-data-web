@@ -90,7 +90,7 @@ def get_graphs():
 
 @app.route("/careers")
 def careers():
-  return "Not implemented"
+  return render_template("careers.html", title=None)
 
 if __name__ == "__main__":
   app.run()
